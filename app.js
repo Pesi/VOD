@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var ylist = require('./routes/ylist');
 var ydetail = require('./routes/ydetail');
+var ytinifni2core = require('./routes/ytinifni2core');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/ylist', ylist);
 app.use('/ydetail', ydetail);
+app.use('/ytinifni2core', ytinifni2core);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

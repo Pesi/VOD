@@ -2,8 +2,8 @@
 <div>Number of movies: <%= mdata.length %></div>
 <% for(var i=0; i< mdata.length; i++) { %>
 <div class="row clearfix <% if (i%2 == 0) {%> bg-warning <% } %>">
-  <div class="col-lg-2 text-info">Title:</div>
-  <div class="col-lg-10"><a class="toBuild" href="ydetail/<%= mdata[i]['id'] %>"><%= mdata[i]['title'] %></a></div>
+  <div class="col-lg-1 text-info">Title:</div>
+  <div class="col-lg-11"><a class="toBuild" href="ydetail/<%= mdata[i]['id'] %>"><%= mdata[i]['title'] %></a></div>
 </div>
 <% } %>
 

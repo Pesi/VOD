@@ -37,7 +37,7 @@
 
     $('#export2core').click(function(event){
       event.preventDefault();
-      loadPanel('export2core');
+      loadPanel('ytinifni2core');
     });
 
     var loadPanel = function (url) {
@@ -46,6 +46,10 @@
         $('#replacePanel').html(data);
       });
     }
+
+    var openPopup = function(url){
+      
+    };
 
 	</script>
 <% include footer.ejs %>

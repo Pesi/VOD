@@ -1,7 +1,7 @@
 <h3><%= title %></h3>
 <% var i = 0; for (var key in mdata) {%>
 <div class="row clearfix <% if (i%2 == 0) {%> bg-warning <% } %>">
-  <div class="col-lg-1"><%= key %></div>
-  <div class="col-lg-11"><%= mdata[key] %></div>
+  <div class="col-lg-2"><%= key %></div>
+  <div class="col-lg-10"><%= mdata[key] %></div>
 </div>
 <% i++; } %>

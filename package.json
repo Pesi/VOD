@@ -16,6 +16,9 @@
     "serve-favicon": "~2.3.0",
     "node-ffprobe":"1.2.2",
     "mongodb":"*",
-    "mongoose":"*"
+    "mongoose":"*",
+    "csv-parse":"*",
+		"libxml":"*",
+		"libxml-xsd":"*"
   }
 }

@@ -10,12 +10,6 @@ router.get('/',function(req,res,next){
     }
     res.render('ylist',{title:'List of titles', mdata: data});
 
-    //------------
-    // prevede ytinifni strukturu na coreMetadata strukturu
-    metadata.importYtinifni(function(err,mdata){
-      console.log(mdata);
-    })
-    //------------
   });
 });
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://www.anysite.org" xmlns:md="http://www.movielabs.com/md" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.anysite.org Library.xsd">
+    <BasicMetadata CID="md:cid:org:blueskyfilm.com:licks1">
+
+<% for (var info in metadata.localizedinfos) { %>
+<% include metadata/localizedinfo.ejs %>
+<% } %>
+      <md:RunLength><% metadata.RunLength %></md:RunLength>
+      <md:CountryOfOrigin><% metadata.CountryOfOrigin %><</md:CountryOfOrigin>
+      <md:PrimarySpokenLanguage><% metadata.PrimarySpokenLanguage %><</md:PrimarySpokenLanguage>
+      <md:ReleaseYear><% metadata.ReleaseYear %><</md:ReleaseYear>
+      <md:ReleaseDate><% metadata.ReleaseDate %><</md:ReleaseDate>
+
+      <md:WorkType><% metadata.WorkType %></md:WorkType>
+      <md:PictureColorType><% metadata.ColorType %></md:PictureColorType>
+
+      <md:RatingSet>
+<% for (var rating in metadata.ratings) { %>
+  <md:Rating>
+    <md:Region>
+      <md:country><% rating.country %></md:country>
+    </md:Region>
+    <md:System><% rating.system %></md:System>
+    <md:Value><% rating.value %></md:Value>
+  </md:Rating>
+<% } %>
+      </md:RatingSet>
+
+<% for (var person in metadata.people) { %>
+      <md:People>
+        <md:Job>
+          <md:JobFunction><% person.JobFunction %></md:JobFunction>
+          <md:JobDisplay><% person.JobDisplay %></md:JobDisplay>
+          <md:BillingBlockOrder><% person.Order %></md:BillingBlockOrder>
+        </md:Job>
+        <md:Name>
+          <md:DisplayName><% person.DisplayName %></md:DisplayName>
+        </md:Name>
+      </md:People>
+
+    </BasicMetada>
+</Library>
+<% } %>

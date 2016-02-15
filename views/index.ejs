@@ -1,0 +1,51 @@
+<% include header.ejs %>
+  <div class="row clearfix">
+    <div class="col-md-12"><h1><%= title %></h1></div>
+	</div>
+  <!-- Split button -->
+  <div class="btn-group">
+    <button type="button" class="btn btn-default">Yntinifni raw</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a id="getlist" href="ylist">Show list</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a id="export2core" href="ExportToCore">Export to Core metadata</a></li>
+      <li><a href="#">Reload from csv</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default">Core Metadata</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a id="getcorelist" href="corelist">Show list</a></li>
+      </ul>
+  </div>
+
+  <div id="replacePanel"></div>
+
+  <script>
+    $('#getlist').click(function(event){
+      event.preventDefault();
+      loadPanel('ylist');
+    });
+
+    $('#export2core').click(function(event){
+      event.preventDefault();
+      loadPanel('export2core');
+    });
+
+    var loadPanel = function (url) {
+      console.log(url);
+      $.get(url,function(data){
+        $('#replacePanel').html(data);
+      });
+    }
+
+	</script>
+<% include footer.ejs %>

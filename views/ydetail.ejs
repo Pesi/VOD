@@ -1,7 +1,15 @@
 <h3><%= title %></h3>
 <% var i = 0; for (var key in mdata) {%>
-<div class="row clearfix <% if (i%2 == 0) {%> bg-warning <% } %>">
+<div class="row clearfix p-padding <% if (i%2 == 0) {%> bg-warning <% } %>">
   <div class="col-lg-2"><%= key %></div>
-  <div class="col-lg-10"><%= mdata[key] %></div>
+  <% if (typeof mdata[key] == 'object' && key != '_id') { %>
+    <div class="col-lg-10">
+    <% for (var k in mdata[key]) { %>
+        <%= mdata[key][k] %><br />
+    <% } %>
+  </div>
+  <% } else { %>
+    <div class="col-lg-10"><%= mdata[key] %></div>
+  <% } %>
 </div>
 <% i++; } %>

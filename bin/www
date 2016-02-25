@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+process.title = "VOD_Metadata";
+
 /**
  * Module dependencies.
  */
@@ -24,8 +26,12 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
-server.listen(port);
+/*
+server.listen('0.0.0.0',port,function(){
+  console.log(port);
+  });
+  */
+  server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 

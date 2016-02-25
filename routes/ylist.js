@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var metadata = require('../models/metadata');
+var ytinifnidata = require('../models/Ytinifni_import');
 
 router.get('/',function(req,res,next){
-  metadata.getList(function(err,data){
+  ytinifnidata.getList(function(err,data){
     if(err){
       throw err;
     }

@@ -10,10 +10,10 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <ul class="dropdown-menu">
-      <li><a id="getlist" href="ylist">Show list</a></li>
+      <li><a class="loadPanel" href="ylist">Show list</a></li>
       <li role="separator" class="divider"></li>
-      <li><a id="export2core" href="ExportToCore">Export to Core metadata</a></li>
-      <li><a href="#">Reload from csv</a></li>
+      <li><a class="loadPanel" href="ytinifni2core">Export to Core metadata</a></li>
+      <li><a href="loadcsv">Reload from csv</a></li>
     </ul>
   </div>
   <div class="btn-group">
@@ -23,33 +23,37 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <ul class="dropdown-menu">
-      <li><a id="getcorelist" href="corelist">Show list</a></li>
+      <li><a class="loadPanel" href="corelist">Show list</a></li>
       </ul>
   </div>
 
   <div id="replacePanel"></div>
 
   <script>
-    $('#getlist').click(function(event){
+    $('.loadPanel').click(function(event){
       event.preventDefault();
-      loadPanel('ylist');
+      $('#replacePanel').html('<span class="text-info">Working...</span>');
+      var url = $(this).attr('href');
+      loadPanel(url);
     });
 
-    $('#export2core').click(function(event){
-      event.preventDefault();
-      loadPanel('ytinifni2core');
-    });
-
-    var loadPanel = function (url) {
-      console.log(url);
-      $.get(url,function(data){
-        $('#replacePanel').html(data);
+    var loadPanel = function(url) {
+      $.ajax({
+        type:"GET",
+        url: url,
+        success: function(response){
+          $('#replacePanel').html(response);
+        },
+        error: function(xhr,ajaxOptions,throwError) {
+          console.log(xhr.status);
+          console.log(throwError);
+        }
       });
     }
 
-    var openPopup = function(url){
-      
-    };
+    function copyToClipboard(text) {
+      window.prompt("Copy to clipboard: Cmd + C, Enter", text);
+    }
 
 	</script>
 <% include footer.ejs %>

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "debug": "DEBUG=debug node ./bin/www"
+    "debug": "DEBUG=debug node ./bin/www",
+    "stop": "pkill -signal SIGINT VOD_Metadata"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -17,8 +18,14 @@
     "node-ffprobe":"1.2.2",
     "mongodb":"*",
     "mongoose":"*",
-    "csv-parse":"*",
+    "csv": "0.4.6",
+    "csv-parse":"1.0.1",
 		"libxml":"*",
-		"libxml-xsd":"*"
+		"libxml-xsd":"*",
+
+    "react":"*",
+    "react-dom":"*",
+    "express-react-views":"*",
+    "consolidate":"*"
   }
 }

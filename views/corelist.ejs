@@ -1,0 +1,15 @@
+<h3><%= title %></h3>
+<div>Number of movies: <%= mdata.length %></div>
+<% for(var i=0; i< mdata.length; i++) { %>
+<div class="row clearfix <% if (i%2 == 0) {%> bg-warning <% } %>">
+  <div class="col-lg-8"><a class="toEdit" href="title/<%= mdata[i]['id'] %>"><%= mdata[i]['title'] %></a> <span class='text-muted'>(<%= mdata[i]['studioReleaseTitle'] %> / <%= mdata[i]['releaseYear'] %>)</span></div>
+</div>
+<% } %>
+
+<script>
+$(".toEdit").click(function(event){
+  event.preventDefault();
+  var url = $(this).attr('href');
+  loadPanel(url);
+});
+</script>

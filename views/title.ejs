@@ -1,0 +1,166 @@
+<h3><%= title %></h3>
+
+<script type="text/jsx;harmony=true">
+//TODO react form for metadata editing
+/** @jsx React.DOM */
+
+import React from 'react';
+
+export default class Test extends React.Component {
+  render(){
+    return (
+      <div>Hello Kitty</div>
+    );
+  }
+}
+
+</script>
+
+<!-- Metadata -->
+<div class="panel panel-default">
+  <div class="panel-heading"><h5>Metadata:</h5></div>
+  <div class="pannel-body">
+    <div class="row">
+    <% if (mdata['provider']) {%>
+      <div class="col-lg-4 text-muted">Provider:</div>
+      <div class"col-lg-10"><%= mdata['provider'] %></div>
+      <%}%>
+    </div>
+    <div class="row">
+    <% if (mdata['originalSpokenLanguage']) {%>
+      <div class="col-lg-4 text-muted">Original Spoken Language:</div>
+      <div class"col-lg-8"><%= mdata['originalSpokenLanguage'] %></div>
+      <%}%>
+    </div>
+    <div class="row">
+    <% if (mdata['releaseYear']) {%>
+      <div class="col-lg-4 text-muted">Release Year:</div>
+      <div class"col-lg-8"><%= mdata['releaseYear'] %></div>
+      <%}%>
+    </div>
+    <div class="row">
+    <% if (mdata['releaseDate']) {%>
+      <div class="col-lg-4 text-muted">Release Date:</div>
+      <div class"col-lg-8"><%= mdata['releaseDate'] %></div>
+      <%}%>
+    </div>
+  </div>
+</div>
+
+<!-- localized info -->
+<div class="panel panel-default">
+  <div class="panel-heading"><h5>Localized Info:</h5></div>
+  <div class="pannel-body">
+  <% for (var i=0; i<mdata['localizedinfo'].length; i++) { %>
+    <div class="row">
+      <div class="col-lg-2 text-muted">locale:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['locale'] %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-muted">Title Display Unlimited:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['title'] %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-muted">Title Sort:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['titleSort'] %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-muted">Title Original:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['titleOriginal'] %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-muted">Title Alternate:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['titleAternate'] %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-muted">Long synopsis:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['synopsisLong'] %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 text-muted">Short synopsis:</div>
+      <div class="col-lg-10"><%= mdata['localizedinfo'][i]['synopsisShort'] %></div>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<!-- Genres -->
+<div class="panel panel-default">
+  <div class="panel-heading"><h5>Genres:</h5></div>
+  <div class="pannel-body">
+    <% for (var i=0; i<mdata['genres'].length; i++) { %>
+      <div class="row">
+        <div class="col-lg-2 text-muted">genre:</div>
+        <div class="col-lg-4"><%= mdata['genres'][i]['genre'] %></div>
+        <div class="col-lg-2 text-muted">genreCode:</div>
+        <div class="col-lg-4"><%= mdata['genres'][i]['genreCode'] %></div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Ratings -->
+  <div class="panel panel-default">
+    <div class="panel-heading"><h5>Ratings:</h5></div>
+    <div class="pannel-body">
+      <% for (var i=0; i<mdata['ratings'].length; i++) { %>
+        <div class="row">
+          <div class="col-lg-2 text-muted">Country:</div>
+          <div class="col-lg-2"><%= mdata['ratings'][i]['country'] %></div>
+          <div class="col-lg-2 text-muted">System:</div>
+          <div class="col-lg-2"><%= mdata['ratings'][i]['system'] %></div>
+          <div class="col-lg-2 text-muted">Rating:</div>
+          <div class="col-lg-2"><%= mdata['ratings'][i]['rating'] %></div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+
+  <!-- People -->
+  <% if (mdata['people']) { %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h5>People:</h5></div>
+      <div class="pannel-body">
+        <% for (var i=0; i<mdata['people'].length; i++) { %>
+          <div class="row">
+            <div class="col-lg-2 text-muted">Job:</div>
+            <div class="col-lg-4"><%= mdata['people'][i]['character'] %></div>
+            <div class="col-lg-2 text-muted">Name:</div>
+            <div class="col-lg-4"><%= mdata['people'][i]['name'] %></div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+
+
+
+  <!-- Keywords -->
+  <% if (mdata['keywords']) { %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h5>Keywords:</h5></div>
+      <div class="pannel-body">
+        <% for (var i=0; i<mdata['keywords'].length; i++) { %>
+          <div class="row">
+            <div class="col-lg-2 text-muted">Keyword:</div>
+            <div class="col-lg-2"><%= mdata['keywords'][i] %></div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+
+  <div class="row clearfix">
+    <div class="col-lg-12">
+      <a class="btn btn-default toBuild" href="buildmd/<%= mdata['_id']%>" role="button">Build metadata</a>
+    </div>
+  </div>
+
+  <script>
+  $(".toBuild").click(function(event){
+    event.preventDefault();
+    var url=$(this).attr('href');
+    loadPanel(url);
+  });
+  </script>

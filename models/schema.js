@@ -9,8 +9,8 @@ var defCoreMetadataSchema = {
   localizedinfo: [{
     locale: String,
     title: String,
-    titleSort: String,
-    synopsisShort: String,
+    titleSort: {type:String, default:''},
+    synopsisShort: {type:String, default:''},
     synopsisLong: String
   }],
   releaseDate: Date,
@@ -18,21 +18,25 @@ var defCoreMetadataSchema = {
   productionCompany: String,
   country: String,
   originalSpokenLanguage: String,
-  upc: String,
-  isan: String,
+  upc: {type:String, default:''},
+  isan: {type:String, default:''},
   ratings: [{
     country: String,
     system: String,
     rating: String
   }],
   genres: [{
-    genreCode: String,
+    genreCode: {type:String, default:''},
     genre: String
   }],
   people: [{
     character: String,
     name: String
-  }]
+  }],
+  status:{
+    created: {type: Date, default: Date.now},
+    modified: {type: Date, default: Date.now}
+  }
 };
 
 

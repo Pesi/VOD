@@ -1,0 +1,16 @@
+<md:LocalizedInfo language="<%= info.locale %>" <% if (info.default) { %>default="true"<% } %>>
+  <md:TitleDisplayUnlimited><%= info.title %></md:TitleDisplayUnlimited>
+  <md:TitleSort><%= info.titlesort %></md:TitleSort>
+<% for (var i in info.arts) {
+%>  <md:ArtReference resolution="<%= info.arts[i].resolution %>"><%= info.arts[i].id %></md:ArtReference>
+<% }
+%>  <md:Summary190><%= info.synopsisShort %></md:Summary190>
+  <md:Summary4000><%= info.synopsisLong %></md:Summary4000>
+<% for (var i in info.genres) {
+%>  <md:Genre><%= info.genres[i].genre %></md:Genre>
+<% } if(info.titleOriginal) {
+%>  <md:OriginalTitle><%= info.TitleOriginal %></md:OriginalTitle> <% } if (info.titleAlternate) { %>
+  <md:TitleAlternate><%= info.TitleAlternate %></md:TitleAlternate><% }
+for (var i in info.keywords) {
+%>  <md:keyword><%= info.keywords[i] %></md:keyword>
+<%}%></md:LocalizedInfo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://www.bluesky.pro" xmlns:md="http://www.movielabs.com/md" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bluesky.pro Library.xsd">
+    <BasicMetadata CID="<%= metadata.cid %>">
+<% for (var k in metadata.localizedinfo) {
+  var info = metadata.localizedinfo[k]; %><%
+include localizedinfo.ejs %><% } %>
+      <md:RunLength><%= metadata.RunLength %></md:RunLength>
+      <md:CountryOfOrigin><%= metadata.CountryOfOrigin %></md:CountryOfOrigin>
+      <md:PrimarySpokenLanguage><%= metadata.originalSpokenLanguage %></md:PrimarySpokenLanguage>
+      <md:ReleaseYear><%= metadata.releaseYear %></md:ReleaseYear>
+      <md:ReleaseDate><%= metadata.releaseDate %></md:ReleaseDate>
+      <md:WorkType><%= metadata.WorkType %></md:WorkType>
+      <md:PictureColorType><%= metadata.ColorType %></md:PictureColorType>
+      <md:RatingSet>
+<% for (var i in metadata.ratings) {
+%>      <md:Rating>
+        <md:Region>
+          <md:country><%= metadata.ratings[i].country %></md:country>
+        </md:Region>
+        <md:System><%= metadata.ratings[i].system %></md:System>
+        <md:Value><%= metadata.ratings[i].rating %></md:Value>
+      </md:Rating>
+<% }
+%>      </md:RatingSet>
+<%
+  for (var i in metadata.people) {
+%>      <md:People>
+        <md:Job>
+          <md:JobFunction><%= metadata.people[i].character %></md:JobFunction>
+          <md:JobDisplay><%= metadata.people[i].character %></md:JobDisplay>
+          <md:BillingBlockOrder><%= metadata.people[i].order %></md:BillingBlockOrder>
+        </md:Job>
+        <md:Name>
+          <md:DisplayName><%= metadata.people[i].name %></md:DisplayName>
+        </md:Name>
+      </md:People>
+<% }
+%>    </BasicMetadata>
+</Library>

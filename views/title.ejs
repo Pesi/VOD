@@ -1,21 +1,12 @@
 <h3><%= title %></h3>
 
-<script type="text/jsx;harmony=true">
-//TODO react form for metadata editing
-/** @jsx React.DOM */
-
-import React from 'react';
-
-export default class Test extends React.Component {
-  render(){
-    return (
-      <div>Hello Kitty</div>
-    );
-  }
-}
+<script type="text/babel">
+ReactDOM.render(
+  <ExampleApplication arg="Kukuc" />,
+  document.getElementById('container')
+);
 
 </script>
-
 <!-- Metadata -->
 <div class="panel panel-default">
   <div class="panel-heading"><h5>Metadata:</h5></div>

@@ -27,6 +27,54 @@
       </ul>
   </div>
 
+  <div id="reactMenuContainer">menu</div>
+
+  <div id="container">
+    <p>
+      To install React, follow the instructions on
+      <a href="https://github.com/facebook/react/">GitHub</a>.
+    </p>
+    <p>
+      If you can see this, React is not working right.
+      If you checked out the source from GitHub make sure to run <code>grunt</code>.
+    </p>
+  </div>
+
+
+  <script type="text/babel">
+  //import {Button} from 'react-bootstrap';
+
+  var ExampleApplication = React.createClass({
+    render: function() {
+      var param = this.props.arg;
+      return <p>React funguje: {param}</p>;
+    }
+  });
+
+  const buttonsBar = (
+    <ButtonGroup>
+      <p bsStyle="primary">Button</p>
+    </ButtonGroup>
+  );
+
+  var MenuApp = React.createClass({
+    render: function(){
+      return button;
+    }
+  });
+
+  ReactDOM.render(
+    <ExampleApplication arg="nazdar" />,
+    document.getElementById('container')
+  );
+
+  ReactDOM.render(
+    <MenuApp />,
+    document.getElementById('reactMenuContainer')
+  );
+
+  </script>
+
   <div id="replacePanel"></div>
 
   <script>
